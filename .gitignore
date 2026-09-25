@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Frontend build
+.next/
+out/
+dist/
+build/
+
+# Logs
+*.log
+
+# IDE/tool-generated files
+.cph/
+
+# OS files
+.DS_Store
+Thumbs.db

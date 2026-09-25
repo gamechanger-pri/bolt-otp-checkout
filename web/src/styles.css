@@ -1,0 +1,42 @@
+:root {
+  --ink: #1d2a26; --muted: #5d6b66; --paper: #f6f7f4; --card: #ffffff;
+  --line: #d5dbd6; --accent: #0f6b52; --accent-ink: #ffffff; --danger: #b3261e;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ink: #e8efeb; --muted: #9fb0a8; --paper: #101614; --card: #172019; --line: #2d3b34;
+    --accent: #4cc39c; --accent-ink: #08201a; --danger: #ff8a80; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 "Public Sans", system-ui, sans-serif; }
+h1, h2 { font-family: "Bricolage Grotesque", "Public Sans", sans-serif; letter-spacing: -0.01em; margin: 0 0 .5rem; }
+h1 { font-size: 1.9rem; }
+.shell { max-width: 30rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+.tabs { display: flex; gap: .25rem; margin-bottom: 1rem; }
+.tabs button { background: none; border: 0; padding: .4rem .8rem; border-radius: 6px; color: var(--muted); font: inherit; cursor: pointer; }
+.tabs button[aria-current="true"] { color: var(--ink); background: var(--card); border: 1px solid var(--line); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; display: grid; gap: 1rem; }
+.card p { margin: 0; }
+label { display: grid; gap: .3rem; font-weight: 500; font-size: .95rem; }
+input { font: inherit; padding: .6rem .7rem; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: inherit; }
+input:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; }
+input[aria-invalid="true"] { border-color: var(--danger); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+@media (max-width: 420px) { .row { grid-template-columns: 1fr; } }
+.hint { font-weight: 400; font-size: .85rem; }
+.hint.ok { color: var(--accent); }
+.error { color: var(--danger); font-size: .9rem; }
+.welcome { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--accent); }
+button { font: inherit; cursor: pointer; }
+.primary { background: var(--accent); color: var(--accent-ink); border: 0; padding: .7rem 1rem; border-radius: 6px; font-weight: 500; }
+.primary:disabled { opacity: .55; cursor: not-allowed; }
+.ghost { background: none; border: 0; color: var(--muted); text-decoration: underline; padding: .5rem 0; }
+.code { font: 700 2.6rem "Bricolage Grotesque", sans-serif; letter-spacing: .3em; text-align: center; padding: 1rem;
+  border: 2px dashed var(--accent); border-radius: 8px; }
+.backdrop { position: fixed; inset: 0; background: rgba(8, 16, 12, .6); display: grid; place-items: center; padding: 1rem; }
+.modal { background: var(--card); border-radius: 12px; padding: 1.5rem; width: min(24rem, 100%); display: grid; gap: .9rem; border: 1px solid var(--line); }
+.modal p { margin: 0; }
+.codeinput { font-size: 1.8rem; letter-spacing: .4em; text-align: center; }
+.actions { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
+@media (prefers-reduced-motion: no-preference) { .modal { animation: pop .15s ease-out; } }
+@keyframes pop { from { transform: scale(.97); opacity: 0; } }
