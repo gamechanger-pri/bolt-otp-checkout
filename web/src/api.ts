@@ -1,4 +1,4 @@
-const BASE = import.meta.env.API_URL ?? ""; // empty = same origin / Vite proxy
+const BASE = import.meta.env.VITE_API_URL ?? ""; // empty = same origin / Vite proxy
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) { super(message); }
